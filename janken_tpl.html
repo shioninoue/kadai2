@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css" />
+    <title>じゃんけん</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+      <ul>
+        <li id="gu_btn">グー</li>
+        <li id="cho_btn">チョキ</li>
+        <li id="par_btn">パー</li>
+      </ul>
+      <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+      <p id="echo"></p>
+
+      <script>
+        // 👊 グーボタンを押したとき
+        $("#gu_btn").on("click", function () {
+          const r = Math.ceil(Math.random() * 3);
+
+          let pcHand = "";
+          if (r === 1) pcHand = "グー";
+          if (r === 2) pcHand = "チョキ";
+          if (r === 3) pcHand = "パー";
+          $("#pc_hands").text(pcHand);
+
+          let view = "";
+          if (pcHand === "グー") view = '<img src="img/guu.png">';
+          if (pcHand === "チョキ") view = '<img src="img/choki.png">';
+          if (pcHand === "パー") view = '<img src="img/pa-.png">';
+          $("#echo").html(view);
+
+          let result = "";
+          if ("グー" === pcHand) {
+            result = "あいこ";
+          } else if (pcHand === "チョキ") {
+            result = "あなたの勝ち！🎉";
+          } else {
+            result = "あなたの負け…😢";
+          }
+          $("#judgment").text(result);
+        });
+
+        // ✌ チョキボタンを押したとき
+        $("#cho_btn").on("click", function () {
+          const r = Math.ceil(Math.random() * 3);
+
+          let pcHand = "";
+          if (r === 1) pcHand = "グー";
+          if (r === 2) pcHand = "チョキ";
+          if (r === 3) pcHand = "パー";
+          $("#pc_hands").text(pcHand);
+
+          let view = "";
+          if (pcHand === "グー") view = '<img src="img/guu.png">';
+          if (pcHand === "チョキ") view = '<img src="img/choki.png">';
+          if (pcHand === "パー") view = '<img src="img/pa-.png">';
+          $("#echo").html(view);
+
+          let result = "";
+          if ("チョキ" === pcHand) {
+            result = "あいこ";
+          } else if (pcHand === "パー") {
+            result = "あなたの勝ち！🎉";
+          } else {
+            result = "あなたの負け…😢";
+          }
+          $("#judgment").text(result);
+        });
+
+        // 🖐 パーボタンを押したとき
+        $("#par_btn").on("click", function () {
+          const r = Math.ceil(Math.random() * 3);
+
+          let pcHand = "";
+          if (r === 1) pcHand = "グー";
+          if (r === 2) pcHand = "チョキ";
+          if (r === 3) pcHand = "パー";
+          $("#pc_hands").text(pcHand);
+
+          let view = "";
+          if (pcHand === "グー") view = '<img src="img/guu.png">';
+          if (pcHand === "チョキ") view = '<img src="img/choki.png">';
+          if (pcHand === "パー") view = '<img src="img/pa-.png">';
+          $("#echo").html(view);
+
+          let result = "";
+          if ("パー" === pcHand) {
+            result = "あいこ";
+          } else if (pcHand === "グー") {
+            result = "あなたの勝ち！🎉";
+          } else {
+            result = "あなたの負け…😢";
+          }
+          $("#judgment").text(result);
+        });
+      </script>
+
+      <div id="judgment">勝ち</div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
